@@ -2,11 +2,11 @@
   <h2>Welcome in yours list !</h2>
   <h3> <%= @list.name %> </h3>
 
-  <%= link_to list_path(@list),
-              method: :delete,
-              class:"btn btn-light" do%>
-  <i class="fa-solid fa-pen">Delete</i>
-  <% end %>
+  <%# <%= link_to list_path(@list), %>
+              <%# method: :delete, %>
+              <%# class:"btn btn-light" do%>
+  <%# <i class="fa-solid fa-pen">Delete</i> %>
+  <%# <% end %>
 
   <%= link_to 'Back to all', lists_path %>
 
@@ -15,11 +15,12 @@
     <i class="fa-solid fa-pen">New bookmark</i>
     <% end %>
 
-  <h1>All bookmarks</h1>
+  <h3>All bookmarks</h3>
   <ul>
-    <% @bookmarks.each do |bookmark| %>
+    <% @list.bookmarks.each do |bookmark| %>
       <li>
         <%= bookmark.comment %>
+        <br>
         <%= bookmark.movie.title %>
         <%= link_to bookmark_path(bookmark),
                 method: :delete,

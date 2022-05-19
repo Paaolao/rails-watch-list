@@ -6,7 +6,7 @@ class ListsController < ApplicationController
   end
 
   def show
-    @bookmark = Bookmark.new
+    @list = List.find(params[:id])
   end
 
   def new
@@ -22,10 +22,10 @@ class ListsController < ApplicationController
     end
   end
 
-  def destroy
-    @list.destroy
-    redirect_to lists_url, notice: 'list was successfully destroyed.'
-  end
+  # def destroy
+  #   @list.destroy
+  #   redirect_to lists_url, notice: 'list was successfully destroyed.'
+  # end
 
   private
 
@@ -34,6 +34,6 @@ class ListsController < ApplicationController
   end
 
   def list_params
-    params.require(:list).permit(:name, :movies_id, :bookmarks_id, :list_id)
+    params.require(:list).permit(:name)
   end
 end
